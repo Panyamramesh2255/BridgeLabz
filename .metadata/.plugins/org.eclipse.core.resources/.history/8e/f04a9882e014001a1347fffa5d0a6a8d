@@ -1,0 +1,17 @@
+package com.bridgelabz.selenium;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.GeckoDriverService;
+
+public class FirstSeleniumClass {
+	public static void main(String[] args) {
+
+		WebDriver driver=new FirefoxDriver();
+		driver.get("https://github.com/seleniumhq/selenium/issues/2320");
+		//driver.close();
+		
+	}
+
+}

@@ -1,0 +1,166 @@
+package com.bridgelabz.datastructures;
+
+import java.util.Scanner;
+
+
+/**
+ * 
+ * @author PanyamRamesh
+ * purpose: Hashing F
+ *
+ */
+
+
+	
+	
+	public class Hashingtable
+	{
+		
+		public class Node{
+			int data;
+			Node next;
+			Node(int data)
+			{
+				this.data=data;
+				this.next=null;
+			}
+			
+		}
+		Node[] table;
+		int size=0;
+		public Hashingtable(int size)
+		{
+			table=new Node[size];
+			size=0;
+			//System.out.println(table.length);
+			
+		}
+		public void insert(int value)
+		{    
+			size++;
+			Node newnode=new Node(value);
+			int position=hashing(value);
+			if(table[position]==null)
+			{     
+				table[position]=newnode;
+			}
+			else
+			{
+				newnode.next=table[position];	
+			    table[position]=newnode; 
+			}
+			functions();
+			
+		}
+        public int getSize()
+		{
+			return size;
+		}
+		public boolean checkEmpty()
+		{
+			return size==0;
+		}
+		public void remove(int value)
+		{   
+			Node newnod=new Node(value);
+		    int position=hashing(value);
+			Node start=table[position];
+			Node end=start;
+			if(table[position].data==value)
+			{
+				table[position]=start.next;
+			}
+			else 
+			{
+				while(end.next!=null&&end.next.data!=value)
+					end=end.next;
+			}
+			if(end.next==null)
+				System.out.println("Element Not found :");
+			else
+				end.next=end.next.next;
+			functions();
+		}
+		
+		public int hashing(int value)
+		{
+			int position =(value%(table.length));
+			if(position<0)
+				position=(int)(position+table.length);
+			//System.out.println(position);
+		    
+			return position;
+		    
+		}
+		public void display()
+	    {
+			int length=table.length;
+			System.out.println(length);
+			for(int i=0;i<length;i++)
+			{
+				System.out.print("Bucket "+i+":");
+				Node start=table[i];
+				
+				while(start!=null)
+				{
+					System.out.print(start.data+" ");
+					start=start.next;
+				}
+				System.out.println();
+			}
+			functions();
+		
+			
+		}
+		public void functions()
+		{Scanner scanner=new Scanner(System.in);
+		 //Hashingtable ht=new Hashingtable(size);
+		
+			 System.out.println("1.insert  2.delete   3.size  4.checkempty     5.display      6.exit");
+			 int choice=scanner.nextInt();
+			 switch(choice)
+			 {
+			 case 1:System.out.println("Enter value to insert :");
+				    insert(scanner.nextInt());
+			        break;
+			 case 2:System.out.println("Enter value to delete :");
+				    remove(scanner.nextInt());
+			        break;
+			 case 3:System.out.println(getSize());
+			        functions();
+			        break;
+			 case 4:System.out.println(checkEmpty());
+			        functions();
+			        break;
+			 case 5:display();
+			        break;
+			 case 6:exit();
+			        break;
+			 default:System.out.println("Invalid input :");
+			 
+			 
+		}functions();
+		}
+		public void exit()
+		{
+			System.exit(0);
+		}
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("Enter size :");
+		int size=scanner.nextInt();
+	 Hashingtable ht=new Hashingtable(size);
+	 System.out.println(" HashTable Operations :");
+	 ht.functions();
+	
+	 }
+	
+		
+		
+
+	}
+
+

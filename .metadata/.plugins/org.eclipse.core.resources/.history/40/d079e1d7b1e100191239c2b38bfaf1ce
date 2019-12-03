@@ -1,0 +1,35 @@
+package com.bridgelabz.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+import com.mysql.jdbc.Statement;
+
+public class BatchProcessing {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Connection connection;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/design_patterns?useSSL=false", "root", "bridgeit");
+            java.sql.Statement statement=connection.createStatement();
+			/*
+			 * statement.addBatch("insert into student values(15,'harishshankar',11,49)");
+			 * statement.addBatch("insert into student values(16,'royal',9,79)");
+			 * statement.addBatch("insert into student values(17,'nahar',5,99)");
+			 * statement.addBatch("update student set name='saaho' where id=9");
+			 */
+            int[] n=statement.executeBatch();
+            for(int i:n)
+            	System.out.println(i);
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+
+	}
+
+}

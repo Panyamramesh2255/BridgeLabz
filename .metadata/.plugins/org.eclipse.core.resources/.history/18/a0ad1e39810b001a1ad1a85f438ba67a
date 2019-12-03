@@ -1,0 +1,6 @@
+package com.bridgelabz.lambda;
+
+public interface Calculator {
+	public void
+
+}

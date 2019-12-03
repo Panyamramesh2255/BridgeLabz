@@ -1,0 +1,135 @@
+package com.bridgelabz.datastructures;
+import java.util.*;
+/**
+ * 
+ * @author PanyamRamesh
+ * purpose: Implementing Calender functiona
+ *
+ */
+public class Calender {
+	Scanner scanner=new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Calender calender=new Calender();
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("Enter the year :");
+		int year=scanner.nextInt();
+		if(String.valueOf(year).length()==4)
+		{
+			System.out.println("Enter the Month :");
+			int month=scanner.nextInt();
+			if(month<=12&&month>0)
+			{
+				int day=calender.findday(month,year);
+				int numberofdays=calender.numberofdays(month,year);
+				//System.out.println("noofdays :"+numberofdays);
+				calender.calenderDisplay(day,numberofdays);
+				
+			}
+			else
+				System.out.println("invalid input !  month should be between 0 and 13");
+		}
+		else 
+		{
+			System.out.println("invalid input ! year shold be in dddd format");
+		}
+		
+
+	}
+	public int findday(int month,int year)
+	{
+		int yearo,montho,var,dayo;
+		yearo=year-(14-month)/12;
+	   var=yearo+(yearo/4)-(yearo/100)+(yearo/400);
+		montho=month+12*((14-month)/12)-2;
+		dayo=(1+var+((31*montho)/12));
+		dayo=Math.floorMod(dayo, 7);
+		return dayo;		
+		
+		
+	}
+	public void calenderDisplay(int day,int numberofdays)
+	{
+		
+		String[][] calender=new String[7][7];
+		calender[0][0]="su";
+		calender[0][1]="mo";
+		calender[0][2]="tu";
+		calender[0][3]="we";
+		calender[0][4]="th";
+		calender[0][5]="fr";
+		calender[0][6]="sa";
+		int i=1;
+		for(int j=1;j<7;j++)
+		{
+			for(int k=0;k<7;k++)
+			{
+		      
+				while(i<=numberofdays&&k<7)
+				{
+			 	while(day!=0&&k<7)
+			 	{
+			 		calender[j][k]="  ";
+			 		k++;
+			 		day--;
+			    }
+			 	if(i<=10&&k<7)
+			 	{
+			 		calender[j][k]="0"+String.valueOf(i);
+			 		k++;
+			 		i++;
+			 	}
+			 	else if(k<7)
+			 	{
+			 		calender[j][k]=String.valueOf(i);
+			 		i++;
+			 		k++;
+			 	}
+					
+			 	
+				}if(i>numberofdays&&k<7)
+				{
+					calender[j][k]=" ";
+				}
+			}
+		}
+		for(int l=0;l<7;l++)
+		{
+			for(int m=0;m<7;m++)
+			{
+				System.out.print(calender[l][m]+" ");
+			}
+			System.out.println();
+		}
+		
+		
+		
+	}
+	public int numberofdays(int month,int year)
+	{
+		int days;
+		if((year%400==0||year%4==0)&&year%100!=0)
+		{
+			if(month==2)
+				days=29;
+			if(month==1||month==3||month==5||month==7||month==8||month==10||month==12)
+			days=31;
+			else
+				days=30;
+		}
+		else
+		{
+			if(month==2)
+				days=28;
+			if(month==1||month==3||month==5||month==7||month==8||month==10||month==12)
+			days=31;
+			else
+				days=30;
+		}
+
+		
+		return days;
+	}
+
+}

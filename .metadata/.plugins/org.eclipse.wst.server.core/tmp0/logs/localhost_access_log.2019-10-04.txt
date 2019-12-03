@@ -1,0 +1,8 @@
+127.0.0.1 - - [04/Oct/2019:10:43:51 +0530] "GET / HTTP/1.1" 404 1074
+127.0.0.1 - - [04/Oct/2019:10:43:52 +0530] "GET /jspapp4/RegistrationForm.jsp HTTP/1.1" 200 691
+127.0.0.1 - - [04/Oct/2019:10:44:39 +0530] "GET /jspapp4/Registration.jsp?uname=Jerry&upwd=1111&uemail=abc%40gmail.com&umob=789 HTTP/1.1" 200 372
+127.0.0.1 - - [04/Oct/2019:10:46:04 +0530] "GET /jspapp4/LoginForm.jsp HTTP/1.1" 200 654
+127.0.0.1 - - [04/Oct/2019:10:46:14 +0530] "POST /jspapp4/Login.jsp HTTP/1.1" 200 358
+127.0.0.1 - - [04/Oct/2019:10:46:26 +0530] "POST /jspapp4/Login.jsp HTTP/1.1" 200 358
+127.0.0.1 - - [04/Oct/2019:10:46:40 +0530] "POST /jspapp4/Login.jsp HTTP/1.1" 200 358
+127.0.0.1 - - [04/Oct/2019:10:46:51 +0530] "POST /jspapp4/Login.jsp HTTP/1.1" 200 358

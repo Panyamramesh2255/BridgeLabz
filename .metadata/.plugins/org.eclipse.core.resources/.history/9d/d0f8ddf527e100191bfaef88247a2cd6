@@ -1,0 +1,39 @@
+package com.bridgelabz.jdbc;
+
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Types;
+import java.util.Scanner;
+
+import com.mysql.jdbc.CallableStatement;
+import com.mysql.jdbc.Connection;
+
+public class Callable {
+
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		Scanner scanner=new Scanner(System.in);
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection connection=null;
+		try {
+			connection=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/design_patterns?useSSL=false", "root", "bridgeit");
+			
+			
+			
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		CallableStatement call=(CallableStatement) connection.prepareCall("{?=call getUserName(?)}");
+		System.out.println("ENter an age :");
+		int age=scanner.nextInt();
+		call.registerOutParameter(1, Types.CHAR);
+		call.setInt(2, age);
+		call.execute();
+		String name=call.getString(1);
+		System.out.println("name :"+ name);
+		
+
+	}
+
+}

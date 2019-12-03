@@ -1,0 +1,16 @@
+package com.bridgelabz.factoryDeisgnPatterns;
+import com.bridgelabz.factoryDeisgnPatterns.*;
+public class Factory {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		public static Computer getComputer(String type,String ram,String hdd,String cpu)
+		{
+			if("pc".equalsIgnoreCase(type))
+				return Pc(ram,hdd,cpu);
+		}
+
+	}
+
+}

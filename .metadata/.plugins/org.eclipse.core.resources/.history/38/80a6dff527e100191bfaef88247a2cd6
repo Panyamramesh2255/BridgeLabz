@@ -1,0 +1,35 @@
+package com.bridgelabz.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.util.Scanner;
+
+import com.mysql.jdbc.Statement;
+
+public class PreparedStatement {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scanner=new Scanner(System.in);
+		Connection connection=null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/design_patterns?useSSL=false", "root", "bridgeit");
+            //java.sql.Statement st=connection.createStatement();
+			java.sql.PreparedStatement prepare=connection.prepareStatement("insert into student(name) values(?)");
+           System.out.println("enter name :");
+           String name=scanner.next();
+           prepare.setString(1, name);
+           int n=prepare.executeUpdate();
+           System.out.println(n+" rows inserted");
+          			
+			
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+
+	}
+
+}

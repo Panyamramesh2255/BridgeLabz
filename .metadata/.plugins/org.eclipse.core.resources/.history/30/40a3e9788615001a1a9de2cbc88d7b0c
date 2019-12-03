@@ -1,0 +1,111 @@
+package com.addressbook.open;
+
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+import com.addressbook.model.AddressBook;
+import com.addressbook.person.PersonDetails;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class AddressBookOpen {
+	Scanner scanner=new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/*AddressBookOpen ab=new AddressBookOpen();
+		Scanner scanner=new Scanner(System.in);
+		try {
+		File fp=new File("/home/bridgeit/Desktop");
+		String[] str=fp.list((name,f1)->f1.endsWith(".json"));
+		//String[] str=fp.list();
+		for(int i=0;i<str.length;i++)
+		{
+			System.out.println((i+1)+"."+str[i]);
+		}
+		System.out.println("Enter an option to open the book");
+		int choice =scanner.nextInt()-1;
+		ab.open(str[choice]);
+		
+		}catch(Exception e)
+		{
+		e.printStackTrace();
+		}*/
+	}
+	public void openExistingFile() {
+		
+		
+		AddressBookOpen ab=new AddressBookOpen();
+		Scanner scanner=new Scanner(System.in);
+		try {
+		File fp=new File("/home/bridgeit/Desktop");
+		String[] str=fp.list((name,f1)->f1.endsWith(".json"));
+		
+		
+		for(int i=0;i<str.length;i++)
+		{
+			System.out.println((i+1)+"."+str[i]);
+		}
+		System.out.println("Enter serial number of file open the book");
+		int choice =scanner.nextInt()-1;
+		ab.open(str[choice]);
+		
+		}catch(Exception e)
+		{
+		e.printStackTrace();
+		}
+		
+		
+	}
+	
+
+	public void open(String string) throws JsonParseException, JsonMappingException, IOException {
+		
+		try{
+			PersonDetails p=new PersonDetails();
+		
+		AddressBook adb=new AddressBook();
+		ObjectMapper mapper=new ObjectMapper();
+		File fp=new File("/home/bridgeit/Desktop/"+string);
+		if(fp.length()!=0)
+		{
+		List<PersonDetails> pd=Arrays.asList(mapper.readValue(fp, PersonDetails[].class));
+		Object[] str=pd.toArray();
+		System.out.println("                   --------------------List Of Contacts---------------------");		
+		System.out.println();
+		for(Object object:str)
+			System.out.println(object);
+		System.out.println();
+		}
+		else 
+			System.out.println("File is Empty :");
+		adb.functions(fp);
+		
+	}catch(Exception e)
+	{
+		System.out.println("exception found at opening file :");
+	}
+		
+		
+	}
+	public void saveAs(File fp1) throws JsonParseException, JsonMappingException, IOException
+	{
+		ObjectMapper mapper=new ObjectMapper();
+		System.out.println("File name :");
+		String filename=scanner.next();
+		System.out.println("Extension :");
+		String extension=scanner.next();
+		File fp=new File("/home/bridgeit/Desktop/"+filename+"."+extension);
+		List<PersonDetails> saveas=(Arrays.asList(mapper.readValue(fp1, PersonDetails[].class)));
+	    mapper.writeValue(fp, saveas);
+	
+	}
+	
+
+}

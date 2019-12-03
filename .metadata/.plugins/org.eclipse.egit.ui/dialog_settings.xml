@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="CommitDialog.authorValues">
+		<item value="bridgeit &lt;bridgeit@bridgeit-cd&gt;"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="bridgeit &lt;bridgeit@bridgeit-cd&gt;"/>
+	</list>
+	<list key="EGit.KnownHosts">
+		<item value="git.eclipse.org"/>
+		<item value="github.com"/>
+		<item value="bitbucket.org"/>
+	</list>
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item key="HORIZONTAL_SASH_FORM_WEIGHT" value="500,500"/>
+		<item key="STAGING_SASH_FORM_WEIGHT" value="500,500"/>
+		<item key="sortItemState" value="true"/>
+	</section>
+	<section name="GitCommitMessageComponent">
+		<list key="/home/bridgeit/git/repository/.git">
+			<item value="false"/>
+			<item value="bridgeit &lt;bridgeit@bridgeit-cd&gt;"/>
+			<item value="updated"/>
+			<item value="bridgeit &lt;bridgeit@bridgeit-cd&gt;"/>
+			<item value="53bf4843e3398874e840bbedca9d5291021f5116"/>
+			<item value="0"/>
+			<item value="false"/>
+		</list>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="553"/>
+		<item key="DIALOG_Y_ORIGIN" value="607"/>
+		<item key="DIALOG_WIDTH" value="656"/>
+		<item key="DIALOG_HEIGHT" value="457"/>
+		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
+		<list key="sashWeights">
+			<item value="600"/>
+			<item value="400"/>
+		</list>
+	</section>
+</section>

@@ -1,0 +1,21 @@
+package com.bridgelabz.factoryDeisgnPatterns;
+import com.bridgelabz.factoryDeisgnPatterns.Pc;
+import com.bridgelabz.factoryDeisgnPatterns.Server;
+
+public class Factory {
+
+
+		
+		public static Computer getComputer(String type,String ram,String hdd,String cpu)
+		{
+			if("pc".equalsIgnoreCase(type))
+				return new Pc(ram,hdd,cpu);
+			else if("Server".equalsIgnoreCase(type))
+				return  (Computer) new Server(ram,hdd,cpu);
+			
+			return null;
+		}
+
+	}
+
+

@@ -1,0 +1,16 @@
+package com.spring.setterinjection;
+
+import java.applet.AppletContext;
+import java.lang.Object;
+
+public class Exam {
+
+	public static void main(String[] args) {
+		/*
+		 * Student student=new Student(); student.setStudentName("rajesh");
+		 * student.display();
+		 */
+		AppletContext context=
+	}
+
+}

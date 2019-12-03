@@ -1,0 +1,12 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class FirstProject {
+	public static void main(String[] args) {
+		WebDriver driver= new FirefoxDriver();
+		driver/home/bridgeit/Downloads/selenium-java-3.141.59/client-combined-3.141.59.jar
+		/home/bridgeit/Downloads/selenium-java-3.141.59/client-combined-3.141.59-sources.jar.get("http://www.google.com");
+		driver.close();
+	}
+
+}

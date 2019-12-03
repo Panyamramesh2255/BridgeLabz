@@ -1,0 +1,32 @@
+package com.bridgelabz.practice;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+
+import com.mysql.jdbc.CallableStatement;
+
+public class StoredProcedures {
+
+	public static void main(String[] args) {
+		
+		Connection connection =null;
+		try {
+		Class.forName("com.mysql.jdbc.Driver");
+		 connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/design_patterns?useSSL=false", "root", "bridgeit");
+		 java.sql.CallableStatement call=connection.prepareCall("{call studentdata()}");
+		 ResultSet rst=call.executeQuery();
+		 while(rst.next())
+		 {
+			 System.out.format("Id: %2d    Name:%-7s    calss:%-7d    marks:%-5d",rst.getInt(1),rst.getString(2),rst.getInt(3),rst.getInt(4));
+		     System.out.println();
+		 }
+		} catch(Exception e)
+		{
+			e.printStackTrace();
+			e.getMessage();
+		}
+
+	}
+
+}

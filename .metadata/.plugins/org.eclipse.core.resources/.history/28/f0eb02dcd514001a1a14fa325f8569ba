@@ -1,0 +1,16 @@
+package com.bridgelabz.selenium;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.GeckoDriverService;
+
+public class FirstSeleniumClass {
+	public static void main(String[] args) {
+
+		GeckoDriverService driver=new Ge
+		driver.get("https://google.com");
+		//driver.close();
+		
+	}
+
+}

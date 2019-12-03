@@ -1,0 +1,101 @@
+package com.addressbook.model;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
+import com.addressbook.open.AddressBookOpen;
+import com.addressbook.person.AddPerson;
+import com.addressbook.person.DeleteRecord;
+import com.addressbook.person.SortByName;
+import com.addressbook.person.SortByZip;
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+
+public class AddressBook {
+	Scanner scanner=new Scanner(System.in);
+
+	public static void main(String[] args) throws JsonGenerationException, JsonMappingException, IOException {
+		// TODO Auto-generated method stub
+		AddressBook ab=new AddressBook();
+		ab.start();
+		
+		
+
+	}
+	public void start()
+	{
+		AddPerson ap=new AddPerson();
+		AddressBookOpen ab1=new AddressBookOpen();
+		Scanner scanner=new Scanner(System.in);	
+		File fp=new File("/home/bridgeit/Desktop/addingperson1.json");
+		AddressBook ab=new AddressBook();
+		//ab.functions(fp);
+		System.out.println("      1.createNewAddressbook        2.OpenExistingAddresBook       3.quit ");
+		int choice=scanner.nextInt();
+		if(choice==1)
+		{
+			ap.createNewFile();
+			ab.start();
+		}
+		else if(choice==2)
+		{
+			ab1.openExistingFile();
+		}
+		else if (choice==3)
+		{
+			ab.quit();
+		}
+	}
+	public void functions(File fp) throws JsonGenerationException, JsonMappingException, IOException
+	{
+		Scanner scanner=new Scanner(System.in);
+		AddressBookOpen ab=new AddressBookOpen();
+		DeleteRecord dr=new DeleteRecord();
+		SortByName sbn=new SortByName();
+		SortByZip sbz=new SortByZip();
+		
+		AddPerson ap=new AddPerson();
+		//try {
+		System.out.println(" 1.AddPerson    2.Edit     3.Delete     4.SortByFirstName     5.SortByZip       6.Saveas       7.Back        8.Quit");
+		int choice=scanner.nextInt();
+		switch(choice)
+		{
+		case 1:ap.addPerson(fp);
+		        break;
+		case 2:ap.edit(fp);
+	            break;
+		case 3: dr.delete();
+	            break;
+		case 4: sbn.sortByFirstName(fp);
+		        break;
+		case 5:sbz.sortByZip(fp); 
+		        break;
+		case 6: ab.saveAs(fp);
+		        break;
+		case 7:back();
+		       break;
+		case 8: quit();
+		        break;
+		 
+		  }
+		
+		
+	}
+	public void quit()
+	{
+		System.out.println("are you sure want to exit   (yes/no)");
+		String choice =scanner.next();
+		if(choice.equalsIgnoreCase("yes"))
+		System.exit(0);
+		else if(choice.equalsIgnoreCase("no"))
+			;
+		else
+			System.out.println("invalid input !");
+			
+	}
+	public void back()
+	{
+		start();
+	}
+}
