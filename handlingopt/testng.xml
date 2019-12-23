@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Suite">
+<test name="Testone">
+<classes>
+<class name="bridgelabz.handlingopt.PopupHandling"/>
+<class name="bridgelabz.handlingopt.VideoRecorder"/>
+</classes>
+</test>
+</suite>

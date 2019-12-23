@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="59" started-at="2019-12-05T13:06:26Z" finished-at="2019-12-05T13:06:26Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="59" started-at="2019-12-05T13:06:26Z" finished-at="2019-12-05T13:06:26Z">
+      <class name="bridgelabz.ddl_xlxs.ReadFromXLXS">
+        <test-method status="PASS" signature="reading()[pri:0, instance:bridgelabz.ddl_xlxs.ReadFromXLXS@e580929]" name="reading" duration-ms="35" started-at="2019-12-05T18:36:26Z" finished-at="2019-12-05T18:36:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reading -->
+      </class> <!-- bridgelabz.ddl_xlxs.ReadFromXLXS -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
